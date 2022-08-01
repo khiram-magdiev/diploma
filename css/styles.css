@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: -webkit-smooth;
+    -webkit-scroll-behavior: smooth;
+    scroll-behavior: smooth;
+}
+
+
 body {
     font-family: "Montserrat", sans-serif;
 }
@@ -114,7 +121,7 @@ body.lock {
     height: 100%;
     overflow: auto;
     transition: all 0.3s ease 0s;
-    background-color: green;
+    background-color: #e4724f;
     padding: 70px 10px 20px 10px;
 }
 
@@ -220,6 +227,7 @@ body.lock {
     height: 256px;
     margin: 0 11px 11px 0;
     background-color: #f2f6fb;
+
 }
 
 .product-img {
@@ -234,6 +242,7 @@ body.lock {
 
 .product-card-info {
     padding: 6px 5px 12px 5px;
+    position: relative;
 }
 
 .product-card-info h3 {
@@ -246,13 +255,16 @@ body.lock {
     height: 68px;
     font-size: 14px;
     color: #000;
+    overflow: hidden;
 }
 
 .product-buttoms {
-    width: 100%;
+    width: 92%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    top: 100px;
 }
 
 .button-buy {
@@ -317,7 +329,7 @@ body.lock {
     margin-bottom: 20px;
 }
 
-.more-bottom a {
+.more-bottom span {
     text-decoration: none;
     color: #000;
 }
@@ -391,6 +403,7 @@ body.lock {
     color: #fff;
     position: absolute;
     right: 11px;
+    border: none;
 }
 
 /*=============================== Footer ======================*/
@@ -400,36 +413,48 @@ body.lock {
     /*footer is hidden for mobile version*/
 }
 
-.footer-mobile {
-    width: 100%;
-    height: 55px;
-    background-color: #fff;
-    border-radius: 15px 15px 0 0;
-    padding: 0 15px;
+.footer-contact {
+    padding: 10px 20px;
+    background: #F1F1F1;
+    
 }
 
-.footer-nav {
-    width: 100%;
-    height: 100%;
+.footer-contact h5 {
+    border-bottom: 1px solid #000;
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.contact-block {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: row;
 }
-.footer-nav ul {
-    min-width: 345px;
+
+.contact-details {
+    font-size: 14px;
+    width: 55%;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 30px;
-    list-style: none;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.footer-nav ul li {
-    margin-right: 10px;
+.contact-details a {
+    text-decoration: none;
+    color: #555555;
+    margin-bottom: 13px;
 }
 
-.footer-nav li:last-child {
-    margin-right: 0;
+.media {
+    width: 45%;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 20px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
 }
 
 .copyright {
@@ -440,6 +465,7 @@ body.lock {
 /*==============================Desktop==========================*/
 
 @media screen and (min-width: 1200px) {
+
     .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -491,7 +517,7 @@ body.lock {
     }
 
     .header-logo img {
-        max-width: 60px;
+        width: 60px;
         height: 60px;
     }
 
@@ -500,7 +526,7 @@ body.lock {
     }
 
     .header-menu {
-        max-width: 55%;
+        max-width: 57%;
         height: 100%;
         display: flex;
         justify-content: space-between;
@@ -518,6 +544,10 @@ body.lock {
         justify-content: space-between;
         z-index: 2;
         padding: 0;
+    }
+
+    .header-list a:hover {
+        color: #000;
     }
 
     .header-list li {
@@ -539,8 +569,8 @@ body.lock {
     .material-symbols-outlined {
         color: #fff;
         position: absolute;
-        top: 45px;
-        left: 84%;
+        top: 40px;
+        left: 95%;
         font-size: 18px;
     }
 
@@ -1086,8 +1116,7 @@ body.lock {
     }
 
     .logo-img {
-        width: 200px;
-        height: 53px;
+        width: 46px;
         margin-right: 10px;
     }
 
@@ -1103,9 +1132,15 @@ body.lock {
         margin: 0 auto;
     }
 
-    .logo-text {
+    .logo-text a {
+        text-decoration: none;
+        color: #000;
         font-size: 28px;
         font-weight: bold;
+    }
+
+    .logo-text a:hover {
+        color: #EE5514;
     }
 
     .media-text {
@@ -1136,6 +1171,10 @@ body.lock {
         position: absolute;
         top: 19px;
         left: 21px;
+    }
+
+    .net:hover {
+        transform: scale(1.5);
     }
 
     .map ul li {
@@ -1195,4 +1234,40 @@ body.lock {
     .footer-nav li:last-child {
         margin-right: 0;
     }
+
+    .element-animation {
+  
+  /* Скроем элемент в начальном состоянии */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.element-animation.element-show {
+  opacity: 1;
+  transition: all 1.5s;
+  transform: translateY(0%);
+}
+
+.header-animation {
+    opacity: 0;
+  transform: translateY(20px);
+}
+
+.header-animation.element-show {
+  opacity: 1;
+  transition: all 1.5s;
+  transform: translateY(0%);
+}
+
+.description-animation {
+    opacity: 0;
+  transform: translateY(30px);
+}
+
+.description-animation.element-show {
+  opacity: 1;
+  transition: all 3.5s;
+  transform: translateY(0%);
+}
+
 }

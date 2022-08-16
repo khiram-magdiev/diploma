@@ -455,6 +455,7 @@ body.lock {
   text-align: center;
   text-decoration: none;
   margin: 5px 2px;
+  color: #555555;
 }
 
 .copyright {
@@ -1202,14 +1203,9 @@ body.lock {
         color: #525c60;
     }
 
-    .footer-mobile {
-        width: 100%;
-        height: 55px;
-        background-color: #fff;
-        border-radius: 15px 15px 0 0;
-        padding: 0 15px;
+    .footer-contact {
         display: none;
-        /*footer-mobile is hidden for  desctop version*/
+        /*footer-contact is hidden for  desctop version*/
     }
 
     .footer-nav {
